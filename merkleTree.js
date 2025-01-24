@@ -7,7 +7,6 @@
 // grab contents directly from the bitcoin chain... fetch latest blog using the url
 const fetchLatestBlock = () =>
     fetch("https://blockchain.info/q/latesthash?cors=true").then(r => r.text());
-
 // fetchLatestBlock().then(console.log)
 
 //STEP 2
@@ -24,7 +23,8 @@ const fetchMerkleRootAndTransactions = block =>
 
 // STEP 4
 // with hexed string provided, split it up into pairs
-// each one of then will parse it and give us in base 10 and provide an array that can be used in the sha256 library
+// each one of then will parse it and give us in base 10 
+// and provide an array that can be used in the sha256 library
 const toBytes = hex =>
     hex.match(/../g).reduce((acc, hex) => [...acc, parseInt(hex, 16)], []);
 
@@ -65,7 +65,6 @@ const merkleRoot = txs =>
     txs.length === 1
         ? txs[0]
         : merkleRoot(toPairs(txs).reduce((tree, pair) => [...tree, hashPair(...pair)], []));
-
 
 
 fetchLatestBlock().then(fetchMerkleRootAndTransactions).then(([root, txs]) => {

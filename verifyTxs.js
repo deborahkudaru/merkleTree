@@ -68,8 +68,8 @@ fetchLatestBlock().then(fetchMerkleRootAndTransactions).then(([root, txs]) => {
     // console.log(root);
     // console.log(txs);
 
-    const txs = rand(txs);
-    const proof = merkleProof(txs, tx);
+    const txss = rand(txs);
+    const proof = merkleProof(txss, tx);
     console.log(proof)
 
 
