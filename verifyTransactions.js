@@ -1,11 +1,11 @@
 
 const transactions = [
-    "Alice",
-    "Bob",
-    "Charlie",
-    "David",
-    "Eve",
-    "Frank"
+    "debby",
+    "ola",
+    "james",
+    "victory",
+    "jerry",
+    "manji"
 ];
 
 const toBytes = str =>
