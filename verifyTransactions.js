@@ -1,3 +1,4 @@
+// const sha256 = require("sha256");
 
 const transactions = [
     "debby",

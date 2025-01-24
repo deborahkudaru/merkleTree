@@ -1,5 +1,5 @@
 // noprotect
-
+// const sha256 = require("sha256");
  
 // merkle tree was named after its creator Rouf Merkle, 1970s
 

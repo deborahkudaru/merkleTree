@@ -1,5 +1,6 @@
 /////making a merkle proof, verifying a txs is in the block
 // no protect
+// const sha256 = require("sha256");
 
 const fetchLatestBlock = () =>
     fetch("https://blockchain.info/q/latesthash?cors=true").then(r => r.text());
@@ -64,10 +65,10 @@ const merkleProof = (txs, tx, proof = []) => {
 const merkleProofRoot = (proof, tx) => 
     proof.reduce((root, [idx, tx]) => idx ? hashPair(root, tx) : hashPair(tx, root), tx);
 
-fetchLatestBlock().then(fetchMerkleRootAndTransactions).then(([root, txs]) => {
+fetchLatestBlock().then(fetchMerkleRootAndTransactions).then(([root, txs, tx]) => {
     // console.log(root);
     // console.log(txs);
-
+   
     const txss = rand(txs);
     const proof = merkleProof(txss, tx);
     console.log(proof)
